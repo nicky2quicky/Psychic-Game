@@ -1,4 +1,13 @@
 body{
-    background: limegreen;
-    font-style: 
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 30px;
+    text-align: center;
+    color: yellow;
+    background-image: url("../background.jpg");
+}
+
+h1{
+    color: pink;
+    font-size: 45px;
+    text-shadow: 2px 2px #ff0000;
 }

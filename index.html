@@ -3,40 +3,101 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My First Object</title>
+    <title>Nick Tom's Physic Game</title>
 </head>
 
 <body>
 
     <h1>Physic Game</h1>
     <p>Guess what letter I'm thinking!</p>
-    <p>Wins<span id="wins"></span></p>
-    <p>Loses<span id="loses"></span></p>
-    <p>Guesses Left<span id="guessesLeft"></span></p>
-    <p>Guesses so Far:<span id="guesses"></span></p>
+    <p>Wins: <span id="wins"></span></p>
+    <p>Loses: <span id="loses"></span></p>
+    <p>Guesses Left: <span id="guessesLeft"></span></p>
+    <p>Letters Guessed: <span id="guesses"></span></p>
 
     <script>
 
-        var wins = 0
-        var loses = 0
-        var guessesLeft = 7
-        var
+// Global variables for initial game settings
 
-        var userGuess = event.key
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
-
-        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-
-        document.onkeyup = function(event) 
-
-        document.getElementByID("gusses")
+        var wins = 0;
+        var loses = 0;
+        var guessesLeft = 7;
+        var keyLog = [];
+        var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length-1)];
         
+
+        // var userGuess = event.key;
+       console.log("computerGuess", computerGuess)
+
+        // if(guessesLeft === 0){
+        //     alert("You Lost!");
+        //     loses++;
+        //     keyLog = [];
+        //     computerGuess = alphabet[Math.floor(Math.random() * alphabet.length-1)];
+        //     guessesLeft = 7;
+        //     domUpdate();
+        // }
+        // else{
+            
+       alert("Please guess a letter from the alphabet!");
+        
+        document.onkeyup = function(event) {
+            console.log(event.key)
+
+        var userGuess = event.key;
+        console.log(userGuess)
+        
+        for(i = 0; i < alphabet.length-1; i++)
+        if (userGuess !== alphabet[i]){
+            alert("Please guess a letter in the alphabet!");
+        } else{
+
+        
+
         if(userGuess === computerGuess){
-            alert("You Win!!"); wins++
+            alert("Lucky Guess - You Win!!"); 
+            wins++;
+            keyLog = [];
+            computerGuess = alphabet[Math.floor(Math.random() * alphabet.length-1)];
+            guessesLeft = 7;
+            domUpdate();
+            }
+        else if(userGuess !== computerGuess && guessesLeft > 1){
+            alert("Guess again!");
+            guessesLeft--;
+            keyLog.push(userGuess);
+            domUpdate()
         }
 
+        else {
+            alert("You lost!");
+            loses++;
+            keyLog = [];
+            computerGuess = alphabet[Math.floor(Math.random() * alphabet.length-1)];
+            guessesLeft = 7;
+            domUpdate();
+            }
+        }
+        }
+
+        function domUpdate(){
+            document.getElementById("wins").textContent = wins;
+            document.getElementById("loses").textContent = loses;
+            document.getElementById("guessesLeft").textContent = guessesLeft;
+            document.getElementById("guesses").textContent = keyLog;
+        }
+            domUpdate()
+        
+        // if(userGuess === 0){loses++}
+
+
+// update DOMS
+//check win/loss
 
         
+
+
     </script>
 
 </body>

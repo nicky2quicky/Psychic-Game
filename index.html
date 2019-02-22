@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Nick Tom's Physic Game</title>
+    <link rel="stylesheet" href="assets/style.css">
+    
 </head>
 
 <body>
@@ -14,6 +16,8 @@
     <p>Loses: <span id="loses"></span></p>
     <p>Guesses Left: <span id="guessesLeft"></span></p>
     <p>Letters Guessed: <span id="guesses"></span></p>
+
+    <img src="assets/kazaam.jpg" width=600px height=700px>
 
     <script>
 
@@ -48,8 +52,8 @@
         var userGuess = event.key;
         console.log(userGuess)
         
-        for(i = 0; i < alphabet.length-1; i++)
-        if (userGuess !== alphabet[i]){
+        
+        if (!alphabet.includes(userGuess)){
             alert("Please guess a letter in the alphabet!");
         } else{
 

@@ -3,7 +3,7 @@ body{
     font-size: 30px;
     text-align: center;
     color: yellow;
-    background-image: url("../background.jpg");
+    background-image: url("./background.jpg");
 }
 
 h1{
